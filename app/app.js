@@ -68,6 +68,10 @@ app.controller("game", ["$scope", function ($scope) {
     {name: 'Bob', cardsArr: [], totalCards: 0},
     {name: 'Joyce', cardsArr: [], totalCards: 0}
   ];
+  
+  $scope.addPlayer = function(){
+    
+  }
   function shuffle(arr){
     var ci = arr.length;
     var tempValue;
@@ -98,20 +102,27 @@ app.controller("game", ["$scope", function ($scope) {
       $scope.player1card = $scope.players[0].cardsArr.pop();
     } else {
       console.log("player 2 has won");
+      $scope.winner = "Joyce";
     }
     if($scope.players[1].cardsArr.length > 0) {
       $scope.player2card = $scope.players[1].cardsArr.pop();
     } else {
       console.log("player 1 has won");
+      $scope.winner = "Bob";
     }
-    if($scope.player1card.value > $scope.player2card.value){
-      $scope.players[0].cardsArr.unshift($scope.player2card);
+    if($scope.player1card.value > $scope.player2card.value) {
+      $scope.players[0].cardsArr.unshift($scope.player2card, $scope.player1card);
       $scope.result = "Bob has won this hand";
+    } else if ($scope.player1card.value == $scope.player2card.value) {
+      
+          console.log("cards are equel in value");
 
     }else {
-      $scope.players[1].cardsArr.unshift($scope.player1card);
+      $scope.players[1].cardsArr.unshift($scope.player1card, $scope.player2card);
       $scope.result = "Joyce has won this hand";
     }
+    $scope.players[0].totalCards = $scope.players[0].cardsArr.length;
+    $scope.players[1].totalCards = $scope.players[1].cardsArr.length;
       
     }
 

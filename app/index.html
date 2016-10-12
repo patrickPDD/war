@@ -11,21 +11,22 @@
   <link rel="stylesheet" href="app.css">
 </head>
 <body ng-controller="game">
-  <h1>War</h1>
-  <button type="button" class="btn btn-std" ng-click="shuffle()">Shuffle and Deal</button>
-  <div ng-if="winner"><span ng-bind="game.winner"></span> has won!</div>
+  <h1>Bob and Joyce Play War</h1>
+  <!--<button type="button" class="btn btn-std" ng-click="newDeck()">Shuffle and Deal</button>-->
+  <div ng-if="winner">
+    <h2><span ng-bind="winner"></span> has won!</h2></div>
   <div ng-if="!winner">
 
     <div class="player">Player {{ players[0].name }} has {{ players[0].totalCards }} cards in hand. </div>
     <div class="player">Player {{ players[1].name }} has {{ players[1].totalCards }} cards in hand. </div>
-  </div>
+
   <button type="button" class="btn btn-std" ng-click="playHand()">Play one hand</button>
   <div> <h2>This hand</h2>
     <p>{{ players[0].name }} has played a {{ player1card.card }}</p>
     <p>{{ players[1].name }} has played a {{ player2card.card }}</p>
     <p ng-bind="result"></p>
     </div>
-
+  </div>
   <script src="bower_components/angular/angular.js"></script>
   <script src="app.js"></script>
 </body>
