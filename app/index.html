@@ -1,33 +1,31 @@
 <!DOCTYPE html>
 <html ng-app="war">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>My AngularJS App</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="bootstrap.css">
-  <!--<link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">-->
-  <link rel="stylesheet" href="app.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My AngularJS App</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="app.css">
 </head>
 <body ng-controller="game">
-  <h1>Bob and Joyce Play War</h1>
-  <!--<button type="button" class="btn btn-std" ng-click="newDeck()">Shuffle and Deal</button>-->
-  <div ng-if="winner">
+<h1>Bob and Joyce Play War</h1>
+<div ng-if="winner">
     <h2><span ng-bind="winner"></span> has won!</h2></div>
-  <div ng-if="!winner">
+<div ng-if="!winner">
 
-    <div class="player">Player {{ players[0].name }} has {{ players[0].totalCards }} cards in hand. </div>
-    <div class="player">Player {{ players[1].name }} has {{ players[1].totalCards }} cards in hand. </div>
+    <div class="player">Player {{ players[0].name }} has {{ players[0].totalCards }} cards in hand.</div>
+    <div class="player">Player {{ players[1].name }} has {{ players[1].totalCards }} cards in hand.</div>
 
-  <button type="button" class="btn btn-std" ng-click="playHand()">Play one hand</button>
-  <div> <h2>This hand</h2>
-    <p>{{ players[0].name }} has played a {{ player1card.card }}</p>
-    <p>{{ players[1].name }} has played a {{ player2card.card }}</p>
-    <p ng-bind="result"></p>
+    <button type="button" class="btn btn-std" ng-click="playHand()">Play one hand</button>
+    <div ng-show="player1card.card"><h2>This hand</h2>
+        <p>{{ players[0].name }} has played a {{ player1card.card }}</p>
+        <p>{{ players[1].name }} has played a {{ player2card.card }}</p>
+        <h3 ng-bind="result"></h3>
     </div>
-  </div>
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="app.js"></script>
+</div>
+<script src="bower_components/angular/angular.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
